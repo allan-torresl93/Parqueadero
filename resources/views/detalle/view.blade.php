@@ -39,7 +39,7 @@
                                         <td>{{$detalle->id}}</td>
                                         <td>{{$detalle->vehiculo}}</td>                                       
                                         <td>{{$detalle->cliente}}</td>
-                                        <td>{{$detalle->horaentrada}}</td>                                       
+                                        <td>{{$detalle->hora_entrada}}</td>                                       
                                     
                                     </tr>
                                 </tbody>

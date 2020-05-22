@@ -39,27 +39,14 @@
                   <label class="col-sm-2 col-form-label">{{ __('Placa del vehiculo') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="placavehiculo" id="input-name" type="text" placeholder="{{ __('Placa del vehiculo') }}" value="" required="true" aria-required="true"/>
+                      <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="placa_vehiculo" id="input-name" type="text" placeholder="{{ __('Placa del vehiculo') }}" value="" required="true" aria-required="true"/>
                       @if ($errors->has('name'))
                         <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('name') }}</span>
                       @endif
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                    <label class="col-sm-2 col-form-label">{{ __('Cupo disponible') }}</label>
-                    <div class="col-sm-7">
-                      <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                        <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="idparqueadero" id="input-name" type="number" placeholder="{{ __('Cupo') }}" value="" required="true" aria-required="true"/>
-                        @foreach ($parqueaderos as $parqueadero)
-                        <option value="{{$parqueadero->id}}">{{$parqueadero->cupo}}</option>
-                        @endforeach
-                        @if ($errors->has('name'))
-                          <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('name') }}</span>
-                        @endif
-                      </div>
-                    </div>
-                </div>
+                
 
             </div>
             <div class="card-footer ml-auto mr-auto">

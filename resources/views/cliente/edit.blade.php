@@ -39,7 +39,7 @@
                   <label class="col-sm-2 col-form-label">{{ __('Asignar puesto') }}</label>
                   <div class="col-sm-7">
                     <div class="input-field">
-                      <select name="idparqueadero" type="text" value="" required="true">
+                      <select name="idParqueadero" type="text" value="" required="true">
                         <option value="" disabled selected>Puesto</option>
                         @foreach ($parqueaderos as $parqueadero)
                             <option value="{{$parqueadero->id}}">{{$parqueadero->cupo}}</option>

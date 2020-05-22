@@ -14,9 +14,9 @@ class DetalleController extends Controller
      */
     public function index()
     {
-        $detalles = App\Detalle::orderby('horaentrada', 'asc')->get();
+        $detalles = App\Detalle::orderby('hora_entrada', 'asc')->get();
         $clientes = App\Cliente::orderby('nombre', 'asc')->get();
-        $vehiculos = App\Vehiculo::orderby('placavehiculo', 'asc')->get();       
+        $vehiculos = App\Vehiculo::orderby('placa_vehiculo', 'asc')->get();       
         return view('detalle.index', compact('detalles', 'clientes', 'vehiculos'));
     }
 
@@ -39,9 +39,9 @@ class DetalleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'horaentrada' => 'required',
-            'idvehiculo' => 'required',
-            'idcliente' => 'required'
+            'hora_entrada' => 'required',
+            'idVehiculo' => 'required',
+            'idCliente' => 'required'
         ]);
 
         App\Detalle::create($request->all());      
@@ -58,9 +58,9 @@ class DetalleController extends Controller
      */
     public function show($id)
     {
-        $detalle = App\Detalle::join('clientes', 'detalles.idcliente', '=', 'clientes.id')
-                                ->join('vehiculos', 'detalles.idvehiculo', '=', 'vehiculos.id')
-                                ->select('detalles.*', 'clientes.nombre as cliente', 'vehiculos.placavehiculo as vehiculo')
+        $detalle = App\Detalle::join('clientes', 'detalles.idCliente', '=', 'clientes.id')
+                                ->join('vehiculos', 'detalles.idVehiculo', '=', 'vehiculos.id')
+                                ->select('detalles.*', 'clientes.nombre as cliente', 'vehiculos.placa_vehiculo as vehiculo')
                                 ->where('detalles.id', $id)
                                 ->first(); 
         return view('detalle.view', compact('detalle'));
@@ -75,7 +75,7 @@ class DetalleController extends Controller
     public function edit($id)
     {
         $clientes = App\Cliente::orderby('nombre', 'asc')->get();
-        $vehiculos = App\Vehiculo::orderby('placavehiculo', 'asc')->get();
+        $vehiculos = App\Vehiculo::orderby('placa_vehiculo', 'asc')->get();
         $detalle = App\Detalle::findorfail($id);
 
         return view('detalle.edit', compact('detalle', 'clientes', 'vehiculos'));
@@ -91,9 +91,9 @@ class DetalleController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'horaentrada' => 'required',            
-            'idvehiculo' => 'required',
-            'idcliente' => 'required'            
+            'hora_entrada' => 'required',            
+            'idVehiculo' => 'required',
+            'idCliente' => 'required'            
         ]);
         
         $detalle = App\Detalle::findorfail($id);
@@ -116,9 +116,9 @@ class DetalleController extends Controller
      */
     public function destroy($id)
     {
-        $detalle = App\Detalle::findorfail($id);
+        $detalles = App\Detalle::findorfail($id);
 
-        $detalle->delete();
+        $detalles->delete();
 
         return redirect()->route('detalle.index')
                 ->with('exito', 'se ha eliminado el detalle correctamente');

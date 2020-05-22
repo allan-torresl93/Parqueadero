@@ -15,10 +15,10 @@ class CreateDetallesTable extends Migration
     {
         Schema::create('detalles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('horaentrada');
-            $table->bigInteger('idvehiculo')->unsigned();
+            $table->string('hora_entrada');
+            $table->bigInteger('idVehiculo')->unsigned();
             $table->foreign('idVehiculo')->references('id')->on('vehiculos');
-            $table->bigInteger('idcliente')->unsigned();
+            $table->bigInteger('idCliente')->unsigned();
             $table->foreign('idCliente')->references('id')->on('clientes');
             $table->timestamps();
         });

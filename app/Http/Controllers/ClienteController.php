@@ -38,7 +38,7 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'idparqueadero' => 'required',
+            'idParqueadero' => 'required',
             'nombre' => 'required',
             'apellido' => 'required',
             'telefono' => 'required'
@@ -58,7 +58,7 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
-        $cliente = App\Cliente::join('parqueaderos', 'clientes.idparqueadero', 'parqueaderos.id')
+        $cliente = App\Cliente::join('parqueaderos', 'clientes.idParqueadero', 'parqueaderos.id')
                             ->select('clientes.*', 'parqueaderos.cupo as parqueadero')
                             ->where('clientes.id', $id)
                             ->first();        
@@ -90,7 +90,7 @@ class ClienteController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'idparqueadero' => 'required',
+            'idParqueadero' => 'required',
             'nombre' => 'required',
             'apellido' => 'required',
             'telefono' => 'required'

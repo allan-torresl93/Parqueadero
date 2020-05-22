@@ -18,7 +18,7 @@ class CreateClientesTable extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->string('telefono');      
-            $table->bigInteger('idparqueadero')->unsigned();
+            $table->bigInteger('idParqueadero')->unsigned();
             $table->foreign('idParqueadero')->references('id')->on('parqueaderos');
             $table->timestamps();
         });

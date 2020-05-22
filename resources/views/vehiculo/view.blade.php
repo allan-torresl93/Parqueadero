@@ -34,7 +34,7 @@
                                  <tbody>
                                     <tr>
                                         <td>{{$vehiculo->id}}</td>
-                                        <td>{{$vehiculo->placavehiculo}}</td>                                       
+                                        <td>{{$vehiculo->placa_vehiculo}}</td>                                       
                                         <td>{{$vehiculo->parqueadero}}</td>                                        
                                     
                                     </tr>

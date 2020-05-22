@@ -38,8 +38,8 @@ class VehiculoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'idparqueadero' => 'required',
-            'placavehiculo' => 'required'            
+            'idParqueadero' => 'required',
+            'placa_vehiculo' => 'required'            
         ]);
 
         App\Vehiculo::create($request->all());      
@@ -56,7 +56,7 @@ class VehiculoController extends Controller
      */
     public function show($id)
     {
-        $vehiculo = App\Vehiculo::join('parqueaderos', 'vehiculos.idparqueadero', 'parqueaderos.id')
+        $vehiculo = App\Vehiculo::join('parqueaderos', 'vehiculos.idParqueadero', 'parqueaderos.id')
                             ->select('vehiculos.*', 'parqueaderos.cupo as parqueadero')
                             ->where('vehiculos.id', $id)
                             ->first();        
@@ -88,8 +88,8 @@ class VehiculoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'idparqueadero' => 'required',
-            'placavehiculo' => 'required',            
+            'idParqueadero' => 'required',
+            'placa_vehiculo' => 'required',            
         ]);
 
         $vehiculo = App\Vehiculo::findorfail($id);
@@ -108,9 +108,9 @@ class VehiculoController extends Controller
      */
     public function destroy($id)
     {
-        $vehiculo = App\Vehiculo::findorfail($id);
+        $vehiculos = App\Vehiculo::findorfail($id);
 
-        $vehiculo->delete();
+        $vehiculos->delete();
 
         return redirect()->route('vehiculo.index')
                 ->with('exito', 'se elimino el vehiculo con exito');

@@ -38,7 +38,7 @@
                   <label class="col-sm-2 col-form-label">{{ __('Placa del vehiculo') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="placavehiculo" id="input-name" type="text" placeholder="{{ __('Placa del vehiculo') }}" value="" required="true" aria-required="true"/>                      
+                      <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="placa_vehiculo" id="input-name" type="text" placeholder="{{ __('Placa del vehiculo') }}" value="" required="true" aria-required="true"/>                      
                       @if ($errors->has('name'))
                         <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('name') }}</span>
                       @endif
@@ -49,7 +49,7 @@
                   <label class="col-sm-2 col-form-label">{{ __('Asignar puesto') }}</label>
                   <div class="col-sm-7">
                     <div class="input-field">
-                      <select name="idparqueadero" type="text" value="" required="true">
+                      <select name="idParqueadero" type="text" value="" required="true">
                         <option value="" disabled selected>Puesto</option>
                         @foreach ($parqueaderos as $parqueadero)
                             <option value="{{$parqueadero->id}}">{{$parqueadero->cupo}}</option>
@@ -92,8 +92,8 @@
                       <tbody>
                         @foreach ($vehiculos as $vehiculo)
                         <tr>
-                          <td>{{$vehiculo -> idparqueadero}}</td>                                                   
-                          <td>{{$vehiculo -> placavehiculo}}</td>                          
+                          <td>{{$vehiculo -> idParqueadero}}</td>                                                   
+                          <td>{{$vehiculo -> placa_vehiculo}}</td>                          
                           <td>
                             <form action="{{route('vehiculo.destroy', $vehiculo->id)}}" method="post">
                               <a href="{{route('vehiculo.show', $vehiculo->id)}}" class="btn btn-info">Ver</a>

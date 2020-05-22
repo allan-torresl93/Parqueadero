@@ -12,7 +12,7 @@
 
             @if ($message = Session::get('exito'))
                   <div class="alert alert success">
-                  <p style="color:#1cc35e"> {{$message}}</p>
+                  <p style="color:blue"> {{$message}}</p>
                   </div>
             @endif
 
@@ -38,7 +38,7 @@
                   <label class="col-sm-2 col-form-label">{{ __('Asignar puesto') }}</label>
                   <div class="col-sm-7">
                     <div class="input-field">
-                      <select name="idparqueadero" type="text" value="" required="true">
+                      <select name="idParqueadero" type="text" value="" required="true">
                         <option value="" disabled selected>Puesto</option>
                         @foreach ($parqueaderos as $parqueadero)
                             <option value="{{$parqueadero->id}}">{{$parqueadero->cupo}}</option>
@@ -120,7 +120,7 @@
                       <tbody>
                         @foreach ($clientes as $cliente)
                         <tr>
-                          <td>{{$cliente -> idparqueadero}}</td>
+                          <td>{{$cliente -> idParqueadero}}</td>
                           <td>{{$cliente -> nombre}}</td>
                           <td>{{$cliente -> apellido}}</td>
                           <td>{{$cliente -> telefono}}</td>

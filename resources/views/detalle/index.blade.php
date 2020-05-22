@@ -36,7 +36,7 @@
                   <label class="col-sm-2 col-form-label">{{ __('Hora de entrada') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="horaentrada" id="input-name" type="TIME" placeholder="{{ __('Hora de entrada') }}" value="" required="true" aria-required="true"/>
+                      <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="hora_entrada" id="input-name" type="TIME" placeholder="{{ __('Hora de entrada') }}" value="" required="true" aria-required="true"/>
                       @if ($errors->has('name'))
                         <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('name') }}</span>
                       @endif
@@ -47,10 +47,10 @@
                   <label class="col-sm-2 col-form-label">{{ __('Asignar Placa') }}</label>
                   <div class="col-sm-7">
                     <div class="input-field">
-                      <select name="idvehiculo" type="text" value="" required="true">
+                      <select name="idVehiculo" type="text" value="" required="true">
                         <option value="" disabled selected>Placa</option>
                         @foreach ($vehiculos as $vehiculo)
-                            <option value="{{$vehiculo->id}}">{{$vehiculo->placavehiculo}}</option>
+                            <option value="{{$vehiculo->id}}">{{$vehiculo->placa_vehiculo}}</option>
                         @endforeach
                       </select>
                     </div>
@@ -60,7 +60,7 @@
                   <label class="col-sm-2 col-form-label">{{ __('Asignar Nombre') }}</label>
                   <div class="col-sm-7">
                     <div class="input-field">
-                      <select name="idcliente" type="text" value="" required="true">
+                      <select name="idCliente" type="text" value="" required="true">
                         <option value="" disabled selected>Nombre</option>
                         @foreach ($clientes as $cliente)
                             <option value="{{$cliente->id}}">{{$cliente->nombre}}</option>
@@ -106,9 +106,9 @@
                       <tbody>
                         @foreach ($detalles as $detalle)
                         <tr>
-                          <td>{{$detalle -> idvehiculo}}</td>
-                          <td>{{$detalle -> idcliente}}</td>                                                     
-                          <td>{{$detalle -> horaentrada}}</td>                          
+                          <td>{{$detalle -> idVehiculo}}</td>
+                          <td>{{$detalle -> idCliente}}</td>                                                     
+                          <td>{{$detalle -> hora_entrada}}</td>                          
                           <td>
                             <form action="{{route('detalle.destroy', $detalle->id)}}" method="post">
                               <a href="{{route('detalle.show', $detalle->id)}}" class="btn btn-info">Ver</a>
